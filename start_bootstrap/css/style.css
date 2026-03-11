@@ -1,0 +1,725 @@
+* {
+    box-sizing: border-box;
+}
+
+ul, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.display_block {
+    display: block !important;
+}
+.opacity_1 {
+    opacity: 1 !important;
+}
+
+/* Animate */
+@keyframes animateTop {
+    from {
+        top : -100%; opacity : 0;
+    } to {
+        top : -0; opacity : 1;
+    }
+}
+
+/* header */
+.header {
+    background-color: rgb(56, 60, 78);
+    color: white;
+    width: 100%;
+    height: 100px;
+    z-index: 10;
+    position: fixed;
+    transition: all 1s;
+}
+.header a {
+    color: white;
+}
+.header_scroll {
+    /* position: fixed; */
+    padding: none;
+    height: 70px;
+    transition: all 1s;
+}
+
+/* header PC */
+.menu_pc {
+    padding: 0 80px;
+    width: 100%;
+}
+.menu_pc>h1 {
+    font-size: 28px;
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.menu_pc>h1>a {
+    padding: 5px 0;
+    display: inline-block;
+}
+.nav_pc {
+    position: absolute;
+    display: flex;
+    right: 10%;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.nav_pc>li>a {
+    display: inline-block;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+.nav_pc>li>a:hover {
+    color: rgb(23, 196, 167);
+}
+.current_nav {
+    background-color: rgb(23, 196, 167);
+    border-radius: 10px;
+    color: white !important;
+}
+
+/* header mobile */
+.menu_mobile {
+    display: flex;
+    justify-content: space-between;
+    /* padding: 20px 10%; */
+    display: none;
+}
+.menu_mobile>h1 {
+    font-size: 23px;
+    position: absolute;
+    top: 50%;
+    left: 3%;
+    transform: translate(0, -50%);
+}
+.menu_mobile>h1>a {
+    padding: 5px 0;
+    display: inline-block;
+}
+.nav_mobile>li>a {
+    display: inline-block;
+    padding: 15px 10px;
+    width: 100%;
+    font-weight: bold;
+}
+.nav_mobile>li>a:hover {
+    color: rgb(23, 196, 167);
+}
+.nav_mobile:last-child {
+    padding-bottom: 20px;
+}
+.menu_btn {
+    position: absolute;
+    top: 50%;
+    right: 3%;
+    transform: translate(0, -50%);
+
+    cursor: pointer;
+    width: 90px;
+    height: 48px;
+    background-color: rgb(89, 190, 157);
+    color: white;
+    border-radius: 10px;
+    border: 2px solid rgb(61, 133, 109);
+}
+.menu_btn>svg {
+    width: 12px;
+}
+.nav_mobile {
+    display: none;
+    position: absolute;
+    background-color: rgb(56, 60, 78);
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* head */
+.head {
+    background-color: rgb(23, 196, 167);
+    /* height: 680px; */
+    padding: 200px 60px 60px 60px;
+    text-align: center;
+    color: white;
+}
+.head img {
+    margin-bottom: 20px;
+}
+.head svg {
+    width: 40px;
+}
+.head h1 {
+    font-size: 65px;
+}
+.head p {
+    font-size: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* portfolio */
+.portfolio {
+    padding: 80px 20px;
+    text-align: center;
+    color: rgb(56, 60, 78);
+}
+.portfolio svg {
+    width: 40px;
+}
+.portfolio h1 {
+    font-size: 48px;
+}
+.box {
+    width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+    justify-content: center;
+}
+.box1 {
+    /* width: 30%; */
+    width: 400px;
+    
+}
+.box1 img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+}
+.wrapper {
+    position: relative;
+    margin: 20px 10px;
+  
+}
+.imghover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background-color: rgba(23, 196, 167, 0.9);
+    opacity: 0;
+}
+
+.imghover svg {
+    position: absolute;
+    width: 80px;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.wrapper:hover .imghover {
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.wrapper:hover .imghover>svg {
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+
+
+/* modal portfolio */
+.modal_portfolio {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 50px 0;
+    color: rgb(56, 60, 78);
+    overflow-y: auto;
+    display: none;
+}
+.modal_portfolio_content {
+    /* width: 90%; */
+    width: 1200px;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+    animation-name: animateTop;
+    animation-duration: 0.3s;
+}
+
+/* modal portfolio header */
+.modal_portfolio_header {
+    font-size: 30px;
+    text-align: center;
+    padding-top: 30px;
+}
+.modal_portfolio_title {
+    font-size: 20px;
+    
+}
+.modal_portfolio_title>h1 {
+    display: none;
+}
+.modal_portfolio_header svg {
+    width: 30px;
+}
+.modal_portfolio_header>h1 {
+    
+}
+.modal_portfolio_close {
+    position: absolute;
+    right: 4vw;
+    border: none;
+    font-size: 5vw;
+    font-weight: 200;
+    color: gray;
+    background: none;
+}
+.modal_portfolio_close:hover {
+    cursor: pointer;
+    color: rgb(59, 59, 59);
+}
+
+/* modal portfolio body */
+.modal_portfolio_body {
+    width: 60%;
+    margin: 0 auto;
+}
+.modal_portfolio_img {
+    width: 100%;
+}
+.modal_portfolio_img>img {
+    width: 100%;
+    /* display: none; */
+}
+.modal_portfolio_text {
+    margin: 40px 20px;
+    text-align: center;
+}
+.modal_portfolio_gallery {
+    position: relative;
+    width: 100%;
+}
+/* .modal_portfolio_gallery>button {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.next {
+    right: 0;
+} */
+.gallery_wrapper {
+    display: flex;
+    overflow: auto;
+}
+.gallery_wrapper>img {
+    width: 20%;
+    opacity: 0.3;
+}
+.gallery_wrapper>img:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+/* modal portpolio footer */
+.modal_portfolio_footer {
+    text-align: center;
+    padding: 30px 0;
+}
+.modal_portfolio_footer>button {
+    background-color: rgb(23, 196, 167);
+    padding: 9px 17px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 17px;
+    border: 2px solid rgb(23, 196, 167);
+}
+.modal_portfolio_footer>button:hover {
+    cursor: pointer;
+    background-color: rgb(21, 161, 138);
+    border: 2px solid rgb(15, 134, 114);
+    transition: all 0.2s;
+}
+
+
+
+
+
+
+
+/* about */
+.about {
+    background-color: rgb(23, 196, 167);
+    padding: 80px 0;
+    text-align: center;
+    color: white;
+}
+.about h1 {
+    font-size: 48px;
+}
+.about svg {
+    width: 40px;
+}
+.text {
+    padding: 20px 200px;
+    display: flex;
+    justify-content: space-between;
+}
+.text p {
+    width: 48%;
+    text-align: left;
+    font-size: 20px;
+}
+.download_btn {
+    background-color: rgb(23, 196, 167);
+    padding: 20px 30px;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-size: 21px;
+    
+}
+.download_btn svg {
+    width: 17px;
+}
+.download_btn:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+
+
+
+
+
+
+
+
+
+/* contact */
+.contact {
+    padding: 100px 0;
+    text-align: center;
+    color: rgb(56, 60, 78);
+}
+.contact svg {
+    width: 40px;
+}
+.contact h1 {
+    font-size: 48px;
+}
+.form1 {
+    width: 650px;
+    margin: 0 auto;
+}
+.form1>form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.form1>form>input {
+    margin: 10px;
+    padding: 20px 10px;
+    font-size: 23px;
+    border: 0px;
+    border-bottom: 1px solid lightgray;
+}
+.form1>form>input:last-child {
+    width: 110px;
+    border-radius: 8px;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(23, 196, 167);
+}
+.form1>form>input:last-child:hover {
+    background-color: rgb(17, 156, 133);
+    cursor: pointer;
+    
+}
+.message {
+    /* height: 100px; */
+}
+
+
+
+
+
+
+
+
+
+
+/* footer */
+.footer {
+    background-color: rgb(56, 60, 78);
+    text-align: center;
+    color: white;
+}
+.footer1 {
+    padding: 70px;
+    display: flex;
+    justify-content: space-around;
+}
+.icons {
+    display: flex;
+    justify-content: space-evenly;
+}
+/* .icon1>svg {
+    width: 20px;
+} */
+.icon1>svg {
+    width: 13px;
+}
+.icon1 {
+    border: 2px solid white;
+    padding: 10px 17px;
+    border-radius: 30px;
+}
+.icon1:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+.ft {
+    width: 280px;
+}
+.ft h1 {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+.ft p {
+    font-size: 20px;
+    margin-bottom: 0;
+}
+.footer2 {
+    background-color: rgb(31, 33, 43);
+    padding: 10px 0;
+    font-size: 13px;
+}
+.aboutfreelancer a {
+    color: rgb(23, 196, 167);
+    border-bottom: 2px solid rgb(23, 196, 167);
+}
+.aboutfreelancer a:hover {
+    color: rgb(17, 156, 133);
+    border-bottom: 2px solid rgb(17, 156, 133);
+}
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 800px) {
+    /* header */
+    .menu_pc {
+        display: none;
+    }
+    .menu_mobile {
+        display: flex;
+        /* padding: 20px 3%; */
+    }
+
+    .head { padding: 90px 10px; }
+    .head h1 {
+        font-size: 40px;
+    }
+    .head p {
+        font-size: 20px;
+    }
+
+
+    /* portfolio */
+    .box {
+        width: 100%;
+    }
+    .box1 {
+        width: 400px;
+    }
+    .portfolio h1 {
+        font-size: 40px;
+    }
+    .wrapper {
+        width: 90%;
+    }
+    .wrapper .box1{
+        width: 100%;
+    }
+    .wraper img {
+        width: 100%;
+    }
+    /* about */
+    .about h1 {
+        font-size: 40px;
+    }
+    .text {
+        flex-direction: column;
+        padding: 20px 100px;
+
+    }
+    .text p {
+        width: 100%;
+    }
+
+    /* contact */
+    .form1 {
+        width: 100%;
+    }
+    .contact h1 {
+        font-size: 40px;
+    }
+
+    /* footer */
+    .footer1 {
+        flex-direction: column;
+        align-items: center;
+    }
+    .ft {
+        margin-bottom: 50px;
+    }
+    .aboutfreelancer {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    .ft h1 {
+        font-size: 23px;
+    }
+    .ft p {
+        font-size: 17px;
+    }
+
+    .modal_portfolio_content {
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1100px) {
+    /* header */
+    .menu_pc {
+        display: none;
+    }
+    
+    .menu_mobile {
+        display: flex;
+    }
+
+    .head { padding: 150px 10px;}
+    .head h1 {
+        font-size: 47px;
+    }
+    .head p {
+        font-size: 20px;
+    }
+
+
+    /* portfolio */
+    .box {
+        width: 100%;
+    }
+    .box1 {
+        width: 350px;
+    }
+    .portfolio h1 {
+        font-size: 40px;
+    }
+
+    /* about */
+    .about h1 {
+        font-size: 40px;
+    }
+    .text {
+        flex-direction: column;
+        padding: 20px 150px;
+
+    }
+    .text p {
+        width: 100%;
+    }
+
+    /* contact */
+    .form1 {
+        width: 700px;
+    }
+    .contact h1 {
+        font-size: 40px;
+    }
+
+    /* footer */
+    .footer1 {
+        flex-direction: column;
+        align-items: center;
+    }
+    .ft {
+        margin-bottom: 50px;
+    }
+    .aboutfreelancer {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    .ft h1 {
+        font-size: 23px;
+    }
+    .ft p {
+        font-size: 17px;
+    }
+
+    .modal_portfolio_content {
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 1100px) and (max-width: 1330px) {
+    .box {
+        width: 100%;
+    }
+    .box1 {
+        width: 300px;
+    }
+    .modal_portfolio_content {
+        width: 70%;
+    }
+}
