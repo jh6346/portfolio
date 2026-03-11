@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/band_template.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function() {
+            var currentSlideIndex = 0;
+
+            // slide
+            setInterval(function() {
+                if (currentSlideIndex < 2) {
+                    currentSlideIndex++;
+                } else {
+                    currentSlideIndex = 0;
+                }
+
+                $('.slide').css('display', 'none');
+                $('.slide').eq(currentSlideIndex).css('display', 'block');
+            }, 3000);
+
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > 0) {
+                    $('.header1').addClass('header_fixed');
+                    $('.header2').addClass('header_fixed');
+                } else {
+                    $('.header1').removeClass('header_fixed');
+                    $('.header2').removeClass('header_fixed');
+                }                
+            });
+
+            // header hover
+            $('.main1>li').hover(function() {
+                $(this).children('.sub1').css('display', 'block');
+                if ($(this).hasClass('icon')) {
+                    $(this).children('a').addClass('search_hover');
+                } else {
+                    $(this).children('a').addClass('menu_hover');
+                }
+                
+                
+            }, function() {
+                $(this).children('.sub1').css('display', 'none');
+                if ($(this).hasClass('icon')) {
+                    $(this).children('a').removeClass('search_hover');
+                } else {
+                    $(this).children('a').removeClass('menu_hover');
+                }
+            });
+
+            // header click, PC
+            $('.main1>li>a').on('click', function() {
+                var title = $(this).attr('title');
+                // var title = $(this).attr('href'); //href 가져올 경우
+                // a = a.replace('#', '.');
+
+                a = (title == '.home') ? 0 : ($(title).offset().top) - 50;
+                $('html').stop().animate({scrollTop:a});
+            })
+
+            //header click, mobile
+            $('.main2>li').eq(0).on('click', function() {
+                $('html').stop().animate({scrollTop:0});
+            })
+            $('.sub2>li>a').on('click', function() {
+                $('.sub2').removeClass('display');
+                title = $(this).attr('title');
+                
+                a = ($(title).offset().top) - 40;
+                $('html').stop().animate({scrollTop:a});
+            })
+
+            $('.main2>li').eq(1).click(function() {
+                $('.sub2').toggleClass('display');
+            })
+
+            // tickets click
+            $('.box1>button').on('click', function() {
+                $('.tickets_modal').addClass('display');
+            })
+            $('.tickets_modal_header>p').on('click', function() {
+                $('.tickets_modal').removeClass('display');
+            })
+            $(window).click(function(e) {
+                var t = $(e.target).attr('class');
+                var modal = $('.tickets_modal').attr('class');
+                console.log(modal);
+                if (t == modal) 
+                    $('.tickets_modal').removeClass('display');
+            })
+            $('.tickets_modal_footer>button').on('click', function() {
+                $('.tickets_modal').removeClass('display');
+            })
+            
+        })
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="tickets_modal">
+            <div class="tickets_modal_content">
+                <div class="tickets_modal_header">
+                    <p>×</p>
+                    <span><i class="fa fa-suitcase w3-margin-right"></i> Tickets</span>
+                </div>
+
+                <div class="tickets_modal_body">
+                    <form action="#" class="tickets_form">
+                        <span><i class="fa fa-shopping-cart"></i> Tickets, $15 per person</span>
+                        <input type="text" placeholder="How many?">
+
+                        <span><i class="fa fa-user"></i> Send To</span>
+                        <input type="text" placeholder="Enter email">
+
+                        <button>
+                            PAY<i class="fa fa-check"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="tickets_modal_footer">
+                    <button>
+                        Close <span>×</span>
+                    </button>
+                    <span>Need <a href="#">help?</a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header1">
+            <ul class="main1">
+                <li><a href="#home" title=".home">HOME</a></li>
+                <li><a href="#band" title=".band">BAND</a></li>
+                <li><a href="#tour" title=".tour">TOUR</a></li>
+                <li><a href="#contact" title=".contact">CONTACT</a></li>
+                <li>
+                    <a href="#">MORE<i class="fa fa-caret-down"></i></a>
+
+                   
+                        <ul class="sub1">
+                            <li><a href="#">Merchandise</a></li>
+                            <li><a href="#">Extras</a></li>
+                            <li><a href="#">Media</a></li>
+                        </ul>
+           
+                </li>
+                <li class="icon"><a href="#"><i class="fa fa-search"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- mobile -->
+        <div class="header2">
+            <ul class="main2">
+                <li><a href="#home" title=".home">HOME</a></li>
+                <li class="icon"><a href="#sub2"><i class="fa fa-bars"></i></a></li>
+            </ul>
+
+            <ul class="sub2">
+                <li><a href="#" title=".band">BAND</a></li>
+                <li><a href="#" title=".tour">TOUR</a></li>
+                <li><a href="#" title=".contact">CONTACT</a></li>
+                <li><a href="#" title=".merch">MERCH</a></li>
+            </ul>
+        </div>
+
+        <div class="slides">
+            <div class="slide_wrapper">
+                <div class="slide">
+                    <img src="img/la.jpg" alt="Los Angeles">
+
+                    <div class="text">
+                        <p class="location">Los Angeles</p>
+                        <p>We had the best time playing at Venice Beach!</p>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <img src="img/chicago.jpg" alt="Chicago">
+
+                    <div class="text">
+                        <p class="location">Chicago</p>
+                        <p>Thank you, Chicago - A night we won't forget.</p>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <img src="img/ny.jpg" alt="New York">
+
+                    <div class="text">
+                        <p class="location">New York</p>
+                        <p>The atmosphere in New York is lorem ipsum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="band">
+            <h1>THE BAND</h1>
+            <p class="p1">We love music</p>
+            <p>We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+            <div class="member">
+                <div class="member1">
+                    <p>Name</p>
+                    <img src="img/bandmember.jpg" alt="member1">
+                </div>
+
+                <div class="member1 member2">
+                    <p>Name</p>
+                    <img src="img/bandmember.jpg" alt="member1">
+                </div>
+
+                <div class="member1 member3">
+                    <p>Name</p>
+                    <img src="img/bandmember.jpg" alt="member1">
+                </div>
+            </div>
+        </div>
+
+        <div class="tour">
+            <div class="inner">
+                <h1>TOUR DATES</h1>
+                <p>Remember to book your tickets!</p>
+
+                <ul class="date">
+                    <li>September <span class="soldout">Sold out</span></li>
+                    <li>October <span class="soldout">Sold out</span></li>
+                    <li>November <span class="num">3</span></li>
+                </ul>
+
+                <div class="box">
+                    <div class="box1">
+                        <div class="imghover">
+                            <img src="img/newyork.jpg" alt="NewYork">
+                            <div class="box2"></div>
+                        </div>
+                        <p class="loc">New York</p>
+                        <p class="dt">Fri 27 Nov 2016</p>
+                        <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                        <button>Buy Tickets</button>
+                    </div>
+
+                    <div class="box1">
+                        <div class="imghover">
+                            <img src="img/paris.jpg" alt="Paris">
+                            <div class="box2"></div>
+                        </div>
+                        <p class="loc">Paris</p>
+                        <p class="dt">Sat 28 Nov 2016</p>
+                        <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                        <button>Buy Tickets</button>
+                    </div>
+
+                    <div class="box1">
+                        <div class="imghover">
+                            <img src="img/sanfran.jpg" alt="San Francisco">
+                            <div class="box2"></div>
+                        </div>
+                        <p class="loc">San Francisco</p>
+                        <p class="dt">Sun 29 Nov 2016</p>
+                        <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                        <button>Buy Tickets</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact">
+            <h1>CONTACT</h1>
+            <p>Fan? Drop a note!</p>
+
+            <div class="row">
+                <div class="col">
+                    <p><i class="fa fa-map-marker" style="width:30px"></i>Chicago, US</p>
+                    <p><i class="fa fa-phone" style="width:30px"></i>Phone: +00 151515</p>
+                    <p><i class="fa fa-envelope" style="width:30px"> </i>Email: mail@mail.com</p>
+                </div>
+                
+                <div class="form1">
+                    <form action="">
+                        <input type="text" class="name" placeholder="Name">
+                        <input type="email" class="email"
+                        placeholder="Email">
+                        <br>
+                        <input type="text" class="message"
+                        placeholder="Message">
+                        <br>
+                        <input type="submit" class="submitbtn"value="SEND">
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="map">
+            <img src="img/map.jpg" alt="map">
+        </div>
+
+        <div class="footer">
+            <div class="icons">
+                <i class="fa fa-facebook-official w3-hover-opacity"></i>
+                <i class="fa fa-instagram w3-hover-opacity"></i>
+                <i class="fa fa-snapchat w3-hover-opacity"></i>
+                <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+                <i class="fa fa-twitter w3-hover-opacity"></i>
+                <i class="fa fa-linkedin w3-hover-opacity"></i>
+            </div>
+
+            <p>Powered by <a href="#">w3.css</a></p>
+        </div>
+    </div>
+</body>
+</html>
