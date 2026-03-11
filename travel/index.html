@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function() {
+            var currentImgIndex = 0
+            var currentCardIndex = 0;
+            var slideX = 0;
+
+            function slide_animate() {
+                // slideX = -(currentImgIndex * $('html').outerWidth());
+                slideX = currentImgIndex * 100;
+                $('.slide_wrapper').css('transform', 'translateX(-' + slideX + 'vw)');
+            }
+
+            // right menu
+            $('.right_menu_btn>button').on('click', function() {
+                $('.right_menu').toggleClass('right_menu_click');
+            });
+
+            // slide
+            setInterval(function() {
+                if (currentImgIndex >= 2)
+                    currentImgIndex = 0;
+                else
+                    ++currentImgIndex;
+
+                // $('.slide_wrapper').stop().animate({transform : 'translateX(' + slideX + 'px)'});
+                slide_animate();
+            }, 5000);
+
+            $('.prev_btn').on('click', function() {
+                if (currentImgIndex <= 0)
+                    currentImgIndex = 2;
+                else
+                    --currentImgIndex;
+                slide_animate();
+            })
+
+            $('.next_btn').on('click', function() {
+                if (currentImgIndex >= 2)
+                    currentImgIndex = 0;
+                else
+                    ++currentImgIndex;
+                slide_animate();
+            })
+
+            //section3 card_modal
+            function card_plus(index) {
+                $('.card_modal_header>p').removeClass('display_block');
+                $('.card_modal_header>p').eq(index).addClass('display_block');
+
+                $('.card_modal_gallery>img').removeClass('opacity_1');
+                $('.card_modal_gallery>img').eq(index).addClass('opacity_1');
+            }
+            $('.plus').on('click', function() {
+                currentCardIndex = $(this).parents('.card').index();
+
+                $('.card_modal').addClass('display_block');
+                $('.card_modal_img>img').attr('src', $(this).siblings('img').attr('src'));
+
+                card_plus(currentCardIndex);
+            })
+            $('.card_modal_close').on('click', function() {
+                $('.card_modal').removeClass('display_block');
+            })
+            $('.card_modal_gallery>img').on('click', function() {
+                currentCardIndex = $(this).index();
+
+                $('.card_modal').addClass('display_block');
+                $('.card_modal_img>img').attr('src', $(this).attr('src'));
+
+                card_plus(currentCardIndex);
+            })
+            $('.card_modal_left').on('click', function() {
+                if (currentCardIndex <= 0)
+                    currentCardIndex = 3;
+                else
+                    --currentCardIndex;
+
+                $('.card_modal').addClass('display_block');
+                $('.card_modal_img>img').attr('src', $('.card_modal_gallery>img').eq(currentCardIndex).attr('src'));
+
+                card_plus(currentCardIndex);
+            })
+            $('.card_modal_right').on('click', function() {
+                if (currentCardIndex >= 3)
+                    currentCardIndex = 0;
+                else
+                    ++currentCardIndex;
+
+                $('.card_modal').addClass('display_block');
+                $('.card_modal_img>img').attr('src', $('.card_modal_gallery>img').eq(currentCardIndex).attr('src'));
+
+                card_plus(currentCardIndex);
+            })
+
+            $(window).click(function(e) {
+                var t = $(e.target).attr('class');
+                var modal = $('.card_modal').attr('class');
+                if (t == modal) $('.card_modal').removeClass('display_block');
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="header_wrapper">
+            <div class="logo">
+                <a href="#">
+                    <img src="img/logo.png" alt="logo">
+                    <p>TRAVELGO</p>
+                </a>
+            </div>
+
+            <div class="nav">
+                <ul>
+                    <li>
+                        <a href="#">HOME</a>
+                    </li>
+                    <li>
+                        <a href="#">ABOUT US</a>
+                    </li>
+                    <li>
+                        <a href="#">SERVICES</a>
+                    </li>
+                    <li>
+                        <a href="#">TRAVEL INFO</a>
+                    </li>
+                    <li>
+                        <a href="#">CONTACT</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="right_menu_btn">
+                <button>
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="right_menu">
+            <ul>
+                <li>
+                    <a href="#">HOME</a>
+                </li>
+                <li>
+                    <a href="#">ABOUT US</a>
+                </li>
+                <li>
+                    <a href="#">SERVICES</a>
+                </li>
+                <li>
+                    <a href="#">TRAVEL INFO</a>
+                </li>
+                <li>
+                    <a href="#">CONTACT</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide_wrapper">
+            <img src="img/slide1.jpg" alt="slide1">
+            <img src="img/slide2.jpg" alt="slide2">
+            <img src="img/slide3.jpg" alt="slide3">
+        </div>
+
+        <div class="img_info">
+            <div class="prev_btn">
+                <i class="fa-solid fa-angle-left"></i>
+            </div>
+
+            <div class="img_text">
+                <h1>CORDILLERA<br>MOUNTAINS</h1>
+                <p>TREKKING THE MOUNTAINS OF CORDILLERA BLANCA</p>
+            </div>
+
+            <div class="sns">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-google"></i></a>
+            </div>
+
+            <div class="next_btn">
+                <i class="fa-solid fa-angle-right"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="contents">
+        <div class="section1">
+            <h2>WELCOME</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+
+            <div class="btn">
+                <button class="about_us">ABOUT US</button>
+                <button class="registration">RESIGSTRATION</button>
+            </div>
+        </div>
+
+        <div class="section2">
+            <img src="img/pick13.jpg" alt="pick13">
+            <div class="cover"></div>
+
+            <div class="section2_container">
+                <div class="box">
+                    <div class="box_icons">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <p class="total">1,245</p>
+                    <p>Happy trabellers</p>
+                </div>
+
+                <div class="box">
+                    <div class="box_icons">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+
+                    <p class="total">845</p>
+                    <p>Videos</p>
+                </div>
+
+                <div class="box">
+                    <div class="box_icons">
+                        <i class="fa-solid fa-image"></i>
+                    </div>
+
+                    <p class="total">9,543</p>
+                    <p>Photos</p>
+                </div>
+
+                <div class="box">
+                    <div class="box_icons">
+                        <i class="fa-solid fa-flag"></i>
+                    </div>
+
+                    <p class="total">145</p>
+                    <p>Treks and tours</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card_modal">
+            <div class="card_modal_container">
+                <div class="card_modal_header">
+                    <span class="card_modal_close">&times;</span>
+                    <p class="card_modal_location">Mary, Nelpal</p>
+                    <p class="card_modal_location">Jane, Germany</p>
+                    <p class="card_modal_location">Robert, China</p>
+                    <p class="card_modal_location">Niger, Alps</p>
+                </div>
+
+                <div class="card_modal_body">
+                    <div class="card_modal_left">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </div>
+
+                    <div class="card_modal_right">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+
+                    <div class="card_modal_img">
+                        <img src="" alt="img">
+
+                        <div class="card_modal_gallery">
+                            <img src="img/TESTIMONIALS1.jpg" alt="TESTIMONIALS1">
+                            <img src="img/TESTIMONIALS2.jpg" alt="TESTIMONIALS2">
+                            <img src="img/TESTIMONIALS3.jpg" alt="TESTIMONIALS3">
+                            <img src="img/TESTIMONIALS4.jpg" alt="TESTIMONIALS4">
+                        </div>
+                    </div>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmoditempor incididunt</p>
+                </div>
+
+                <div class="card_modal_footer">
+                    <button class="card_modal_close">&times; Close</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section3">
+            <div class="section3_container">
+                <h2>TESTIMONIALS</h2>
+
+                <div class="card_container">
+                    <div class="card">
+                        <div class="card_img">
+                            <div class="plus">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </div>
+                            <img src="img/TESTIMONIALS1.jpg" alt="TESTIMONIALS1">
+                            
+                        </div>
+                        <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmoditempor incididunt</p>
+                        <p class="card_location">Mary, Nelpal</p>
+
+                    </div>
+                    <div class="card">
+                        <div class="card_img">
+                            <div class="plus">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </div>
+                            <img src="img/TESTIMONIALS2.jpg" alt="TESTIMONIALS2">
+                        </div>
+                        <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmoditempor incididunt</p>
+                        <p class="card_location">Jane, Germany</p>
+                    </div>
+                    <div class="card">
+                        <div class="card_img">
+                            <div class="plus">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </div>
+                            <img src="img/TESTIMONIALS3.jpg" alt="TESTIMONIALS3">
+                        </div>
+                        <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmoditempor incididunt</p>
+                        <p class="card_location">Robert, China</p>
+                    </div>
+                    <div class="card">
+                        <div class="card_img">
+                            <div class="plus">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </div>
+                            <img src="img/TESTIMONIALS4.jpg" alt="TESTIMONIALS4">
+                        </div>
+                        <p class="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmoditempor incididunt</p>
+                        <p class="card_location">Niger, Alps</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer_container">
+                <div class="cover"></div>
+                <img src="img/pick14.jpg" alt="pick14">
+                <div class="newsletter">
+                    <span>NEWSLETTER</span>
+                    <form action="#" class="form1">
+                        <input type="email" placeholder="Email">
+                        <input type="submit" value="SUBSCRIBE">
+                    </form>
+                </div>
+
+                <div class="form_wrapper">
+                    <div class="footer_left">
+                        <div class="phone">
+                            <span class="icon"><i class="fa-solid fa-mobile-screen-button"></i></span>
+                            <span>+82 02 518 1234<br>
+                        +82 02 518 5678</span>
+                        </div>
+                        <div class="location">
+                            <span class="icon"><i class="fa-solid fa-location-arrow"></i></span>
+                            <span>9870 St vincent Place, Glasgow, DC 45 Fr 45.</span>
+                        </div>
+                        <div class="email">
+                            <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                            <span>master@travel.com</span>
+                        </div>
+                    </div>
+                    
+                    <div class="footer_right">
+                        <form action="#" class="form2">
+                            <input type="text" placeholder="Name">
+                            <input type="text" placeholder="Phone">
+                            <input type="email" placeholder="Email">
+                            <input type="text" placeholder="Message">
+                            <input type="submit" value="SEND">
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                Copyright 2019 TRAVELGO All rights reserved
+            </div>
+        </div>
+
+        
+    </div>
+</body>
+</html>
