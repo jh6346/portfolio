@@ -1,0 +1,228 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 20px 0;
+}
+.login:hover, .logout:hover, .signup:hover {
+    cursor: pointer;
+}
+
+
+
+.wrapper {
+    width: 600px;
+    margin: 0 auto;
+}
+.user {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+.header {
+    margin-top: 20px;
+}
+.header>p {
+    text-align: center;
+    border: 5px solid rgb(184, 184, 184);
+    padding: 20px;
+    color: rgb(77, 77, 77);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.content textarea {
+    resize: none;
+}
+.top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.name {
+    display: inline-block;
+}
+.pw {
+    display: inline-block;
+}
+.submitbtn {
+    float: right;
+}
+
+.board_wrapper {
+    margin-top: 20px;
+    border: 1px solid black;
+}
+.board_header {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    padding: 0 50px;
+}
+
+.board_num {
+    width: 10%;
+}
+.board_name {
+    width: 30%;
+}
+.board_content {
+    padding: 0 50px;
+}
+.board_ts {
+    width: 35%;
+}
+.modify {
+    margin-right: 5%;
+    background-color: rgb(194, 213, 255);
+    border: none;
+}
+.delete {
+    background-color: rgb(224, 119, 119);
+    border: none;
+}
+.modify:hover, .delete:hover {
+    cursor: pointer;
+}
+
+.board_pw_ck {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.board_pw_ck_content {
+    position: absolute;
+    z-index: 11;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 300px;
+    height: 50px;
+    background-color: white;
+    text-align: center;
+}
+.board_pw_form {
+    padding-top: 10px;
+}
+
+.board_header {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    padding: 0 50px;
+}
+
+.board_num {
+    width: 10%;
+}
+.board_name {
+    width: 30%;
+}
+.board_content {
+    padding: 0 50px;
+}
+.board_ts {
+    width: 35%;
+}
+
+.comment_header {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    padding: 0 50px;
+}
+
+.comment {
+    background-color: rgb(104, 118, 130);
+
+}
+.comment_list {
+    margin-top: 20px;
+    background-color: rgb(104, 118, 130);
+    color: white;
+}
+.comment_name {
+    width: 40%;
+}
+.comment_content {
+    padding: 10px 75px;
+}
+.comment_ts {
+    width: 35%;
+}
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+.comment_delete {
+    background: none;
+    border: none;
+    color: rgb(126, 50, 50);
+}
+.comment_delete:hover {
+    cursor: pointer;
+}
+
+
+
+.comment_input {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+#comment_textarea {
+    resize: none;
+}
+
+.comment_form>input {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(0, -25%);
+}
+
+.modify_modal {
+
+}
+
+.modify_modal {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.modify_modal_content {
+    position: absolute;
+    z-index: 11;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 600px;
+    height: 200px;
+    background-color: white;
+    text-align: center;
+    display: flex;
+}
+.modify_board {
+    width: 100%;
+}
