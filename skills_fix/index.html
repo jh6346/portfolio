@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        function slide(idx) {
+            $('.slide_wrapper').css('transform', 'translateX(-' + (idx * 25) + '%)');
+            $('.slide_dots>.slide_dot').removeClass('current_slide_dot');
+            $('.slide_dots>.slide_dot').eq(idx).addClass('current_slide_dot');
+        }
+
+        $(document).ready(function() {
+            var currentSlideIdx = 0;
+            var currentAboutUsIdx = 0;
+            var currentDeviceRepairs = 0;
+            // $('.slide_wrapper').css('transform', 'translateX(-25%)');
+
+            slideInterval = setInterval(function() {
+                if (currentSlideIdx >= 3) currentSlideIdx = 0;
+                else currentSlideIdx++;
+
+                slide(currentSlideIdx);
+            }, 7000);
+
+            $('.slide_dot').on('click', function() {
+                currentSlideIdx = $(this).index();
+                slide(currentSlideIdx);
+            });
+
+            list = $('.about_us_card_container');
+            items = $('.about_us_card');
+
+
+            $.each(items, function(i) {
+                console.log(i);
+            })
+
+
+            $('.about_us_next').on('click', function() {
+                if (currentAboutUsIdx >= 4) currentAboutUsIdx = 0;
+                else currentAboutUsIdx++;
+                $('.about_us_card_container').css('transform', 'translateX(-' + (currentAboutUsIdx * 20) + '%)');
+                $('.about_us_card').find('.cover').fadeIn(200);
+                $('.about_us_card').eq(currentAboutUsIdx).find('.cover').fadeOut(200);
+            });
+
+            $('.about_us_prev').on('click', function() {
+                if (currentAboutUsIdx < 1) currentAboutUsIdx = 4;
+                else currentAboutUsIdx--;
+                $('.about_us_card_container').css('transform', 'translateX(-' + (currentAboutUsIdx * 20) +'%)');
+                $('.about_us_card').find('.cover').fadeIn(200);
+                $('.about_us_card').eq(currentAboutUsIdx).find('.cover').fadeOut(200);
+            });
+
+            $('.device_dot').on('click', function() {
+                currentDeviceRepairs = $(this).index();
+
+                if ($(document).innerWidth() <= 1400) {
+                    $('.devices').css('transform', 'translateX(-' + (currentDeviceRepairs * 50) + '%)');
+                } else {
+                    $('.devices').css('transform', 'translateX(-' + (currentDeviceRepairs * 100) + '%)');
+                }
+                
+                $('.device_dot').removeClass('current_device_dot');
+                $('.device_dot').eq(currentDeviceRepairs).addClass('current_device_dot');
+            });
+            // $('.card2').after($('.card1')); //카드1 뒤에 카드2
+
+            $(window).resize(function() {
+                if (($(document).innerWidth() <= 780) && (currentDeviceRepairs == 1)) {
+                    $('.devices').css('transform', 'translateX(0)');
+                } else if (($(document).innerWidth() > 1400) && (currentDeviceRepairs == 1)) {
+                    $('.devices').css('transform', 'translateX(-100%)');
+                } else if (($(document).innerWidth() <= 1400) && (currentDeviceRepairs == 1)) {
+                    $('.devices').css('transform', 'translateX(-50%)');
+                }
+            });
+        });
+
+        
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="nav_wrapper">
+                <div class="logo">SKILLS FIX</div>
+                <div class="right_menu">
+                    <div class="lnb">
+                        <li>지점안내</li>|
+                        <li>수리문의</li>|
+                        <li>Q&A</li>|
+                        <li>창업지원</li>
+                    </div>
+
+                    <div class="login">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                </div>
+
+                <div class="mobile_menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+
+            <div class="slides">
+                <div class="cover"></div>
+
+                <div class="slide_text">
+                    <p class="slide_subtitle">모바일 기기 전문 수리</p>
+                    <p class="slide_title">SKILLS FIX</p>
+                    <div class="slide_dots">
+                        <div class="slide_dot current_slide_dot"></div>
+                        <div class="slide_dot"></div>
+                        <div class="slide_dot"></div>
+                        <div class="slide_dot"></div>
+                    </div>
+                </div>
+
+                <div class="slide_wrapper">
+                    <div class="slide">
+                        <img src="img/header/slide/image_2.jpg" alt="2">
+                    </div>
+                    <div class="slide">
+                        <img src="img/header/slide/image_8.jpg" alt="11">
+                    </div>
+                    <div class="slide">
+                        <img src="img/header/slide/image_11.jpg" alt="11">
+                    </div>
+                    <div class="slide">
+                        <img src="img/header/slide/image_16.jpg" alt="16">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="about_us">
+                <p class="about_us_title">ABOUT US</p>
+                <p class="about_us_text">SKILLS FIX는 스마트폰이 출시 되기 이전부터 모바일 기기를 전문으로 수리해 왔습니다. <br>
+                    기술의 발전에 따라 다양한 기능들이 모바일에 적용되며 끊임없이 변화하고 있지만<br>
+                    고객을 위한 SKILLS FIX의 감사하는 마음은 변하지 않습니다.<br>
+                    테크니션의 신뢰 할 수 있는 기술력을 바탕으로<br>
+                    고객만족에 더욱 최선을 다하는 SKILLS FIX가 되겠습니다.
+                </p>
+                
+                <div class="about_us_card_wrapper">
+                    <button class="about_us_prev"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="about_us_next"><i class="fa-solid fa-chevron-right"></i></button>
+                    <div class="about_us_card_container">
+                        <div class="about_us_card">
+                            <div class="cover"></div>
+                            <img src="img/header/slide/image_7.jpg" alt="13">
+                            <p>패널수리</p>
+                        </div>
+
+                        <div class="about_us_card">
+                            <div class="cover"></div>
+                            <img src="img/header/slide/image_1.jpg" alt="13">
+                            <p>배터리교체</p>
+                        </div>
+                        <div class="about_us_card">
+                            <div class="cover"></div>
+                            <img src="img/header/slide/image_8.jpg" alt="13">
+                            <p>침수점검</p>
+                        </div>
+
+                        <div class="about_us_card">
+                            <div class="cover"></div>
+                            <img src="img/header/slide/image_9.jpg" alt="13">
+                            <p>부분수리</p>
+                        </div>
+
+                        <div class="about_us_card">
+                            <div class="cover"></div>
+                            <img src="img/header/slide/image_14.jpg" alt="13">
+                            <p>데이터백업</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="device_repair">
+                <div class="cover"></div>
+                <img src="img/header/slide/image_13.jpg" alt="13">
+
+                <div class="device_repair_wrapper">
+                    <p class="device_repair_title">DEVICE REPAIRS</p>
+
+                    <div class="device_container">
+                        <div class="device_dots">
+                            <div class="device_dot current_device_dot"></div>
+                            <div class="device_dot"></div>
+                        </div>
+                        
+                        <div class="devices">
+                            <div class="devices_1">
+                                <div class="device">
+                                    <img src="img/contents/device_repairs/iphone-x.png" alt="iphone-x">
+                                    <p>Iphone X</p>
+                                </div>
+                                <div class="device">
+                                    <img src="img/contents/device_repairs/karbonn-opium.png" alt="karbonn-opium">
+                                    <p>Karbonn Opium</p>
+                                </div>
+                                <div class="device">
+                                    <img src="img/contents/device_repairs/lenovo.png" alt="lenovo">
+                                    <p>Lenovo</p>
+                                </div>
+                                <div class="device">
+                                    <img src="img/contents/device_repairs/mi-redmi-1s.png" alt="mi-redmi-1s">
+                                    <p>Mi Redmi 1s</p>
+                                </div>
+                            </div>
+
+                            <div class="devices_2">
+                                <div class="device">
+                                    <img src="img/contents/device_repairs/motorola-moto-g.png" alt="motorola-moto-g">
+                                    <p>Motorola Moto G</p>
+                                </div>
+                                <div class="device">
+                                    <img src="img/contents/device_repairs/motorola-moto-xj.png" alt="motorola-moto-xj">
+                                    <p>Motorola Moto XJ</p>
+                                </div>
+                                <div class="device">
+                                    <img src="img/contents/device_repairs/nokia-lumia.png" alt="nokia-lumia">
+                                    <p>Nokia Lumia</p>
+                                </div>
+                                <div class="device">
+                                    <img src="img/contents/device_repairs/samsung-galaxy.png" alt="samsung-galaxy">
+                                    <p>Samsung Galaxy</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="partners">
+                <p class="partner_title">PARTNERS</p>
+                <p class="plus"><i class="fa-solid fa-plus"></i></p>
+
+                <div class="partner_wrapper">
+                    <div class="partner">
+                        <div class="cover"></div>
+                        <img src="img/contents/partners/강남점.png" alt="강남점">
+                        <p>강남점<br>AM10:00 - PM19:00</p>
+                    </div>
+
+                    <div class="partner">
+                        <div class="cover"></div>
+                        <img src="img/contents/partners/수원점.png" alt="수원점">
+                        <p>수원점<br>AM09:30 - PM19:00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact">
+                <p class="contact_title">CONTACT</p>
+
+                <form action="" class="contact_form">
+                    <table>
+                        <tr>
+                            <td><i class="fa-solid fa-envelope"></i></td>
+                            <td><input type="email" placeholder="E-MAIL" required></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa-solid fa-pen-to-square"></i></td>
+                            <td><input type="text" placeholder="TITLE" required></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa-solid fa-comment"></i></td>
+                            <td><textarea name="" id="" required></textarea></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><button class="submit"><i class="fa-solid fa-paper-plane"></i></button></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="map">
+                <div class="map_img">
+                    <img src="img/footer/map.png" alt="map">
+
+                    <div class="location">
+                        <table>
+                            <tr>
+                                <td>주소</td>
+                                <td>: 서울시 강남구 역삼1동 SKILLS FIX타워</td>
+                            </tr>
+                            <tr>
+                                <td>연락처</td>
+                                <td>: 1577-1234</td>
+                            </tr>
+                            <tr>
+                                <td>E-mail</td>
+                                <td>: webmaster@skillsfix.com</td>
+                            </tr>
+                            <tr>
+                                <td>운영시간</td>
+                                <td>: AM:08:00 - PM19:00</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="footer_bottom">
+                    <div class="footer_bottom_top">
+                        <p>
+                            주소 : 서울시 강남구 역삼1동 SKILLS FIX타워<br>
+                            연락처 : 1577-1234<br>
+                            E-mail : webmaster@skillsfix.com<br>
+                            운영시간 : AM:08:00 - PM19:00
+                        </p>
+
+                        <div class="social_icons">
+                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-facebook"></i>
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </div>
+                    </div>
+                    <hr>
+                    <p class="copyright">COPYRIGHT © SKILLS FIX</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
