@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        //select
+        function select() {
+            $('.table1 tbody').empty();
+
+            $.ajax({
+                url: 'select.php',
+                dataType: 'JSON',
+                success: function(data) {
+                    $.each(data, function(i, o) {
+                        $row = $('<tr />').append(
+                            $('<td />').append(o.id),
+                            $('<td />').append(o.name),
+                            $('<td />').append($('<button />').append('보기').attr('class', 'detail')),
+                            $('<td />').append($('<button />').append('수정').attr('class', 'update'))
+                        );
+
+                        $('.table1 tbody').append($row);
+                    });
+                }, error: function() {
+                    alert('error');
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            select();
+
+            //add
+            $('#add').on('click', function() { //block
+                $('.modal_add').css('display', 'block');
+            });
+            $('.modal_add_header>span').on('click', function() {
+                $('.modal_add').css('display', 'none');
+            });
+            $('.modal_add_footer>#close').on('click', function() {
+                $('.modal_add').css('display', 'none');
+            });
+
+            $('.add_form').on('submit', function(e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: 'insert.php',
+                    method: 'POST',
+                    data: $('.add_form').serialize(),
+                    success: function(data) {
+                        $('.modal_add').css('display', 'none');
+                        select();
+                    }, error: function() {
+                        alert('error');
+                    }
+                });
+            });
+
+            //detail
+            $(document).on('click', '.detail', function() {
+                $('.modal_detail').css('display', 'block');
+                $('.table2').empty();
+                $.ajax({
+                    url: 'select_id.php',
+                    dataType: 'JSON',
+                    method: 'POST',
+                    data: {id: $(this).parent().prev().prev().html()},
+                    success: function(data) {
+                        $('.table2').append(
+                            $('<tr />').append(
+                                $('<td />').append('이름'),
+                                $('<td />').append(data.name),
+                            ),
+                            $('<tr />').append(
+                                $('<td />').append('주소'),
+                                $('<td />').append(data.address),
+                            ),
+                            $('<tr />').append(
+                                $('<td />').append('성별'),
+                                $('<td />').append(data.sex),
+                            ),
+                            $('<tr />').append(
+                                $('<td />').append('직업'),
+                                $('<td />').append(data.job),
+                            ),
+                            $('<tr />').append(
+                                $('<td />').append('나이'),
+                                $('<td />').append(data.age),
+                            )
+                        )
+                    }, error: function() {
+                        alert('error');
+                    }
+                })
+            });
+
+            $('.modal_detail_header>span').on('click', function() {
+                $('.modal_detail').css('display', 'none');
+            });
+            $('.modal_detail_footer>.close').on('click', function() {
+                $('.modal_detail').css('display', 'none');
+            });
+
+
+            //update
+            $(document).on('click', '.update', function() {
+                $('#sex').val('female');
+                $('.modal_update').css('display', 'block');
+                $.ajax({
+                    url: 'select_id.php',
+                    dataType: 'JSON',
+                    method: 'POST',
+                    data: {id: $(this).parent().prev().prev().prev().html()},
+                    success: function(data) {
+                        $('#id').html(data.id);
+                        $('#name').val(data.name);
+                        $('#address').val(data.address);
+                        $('.sex').val(data.sex);
+                        console.log(data.sex);
+                        console.log($('#sex').val());
+                        $('#job').val(data.job);
+                        $('#age').val(data.age);
+                    }, error: function() {
+                        alert('error');
+                    }
+                });
+            });
+            $('.modal_update_header>span').on('click', function() {
+                $('.modal_update').css('display', 'none');
+            });
+            $('.modal_update_footer>#close').on('click', function() {
+                $('.modal_update').css('display', 'none');
+            });
+
+            $('.update_form').on('submit', function(e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: 'update.php',
+                    data: $('.update_form').serialize() + "&id=" +$('#id').html(),
+                    method: 'POST',
+                    success: function(data) {
+                        $('.modal_update').css('display', 'none');
+                        select();
+                    }, error: function(e) {
+                        alert(e);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>employee data</h1>
+
+        <div class="container">
+            <button id="add">추가</button>
+            <br>
+            <table class="table1">
+                <thead>
+                    <tr>
+                        <th style="width:50px;"></th>
+                        <th style="width:550px">이름</th>
+                        <th style="width:100px">보기</th>
+                        <th style="width:100px">수정</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="modal_add modal1">
+        <div class="modal_add_container modal1_container">
+            <div class="modal_add_header modal1_header">
+                <h4>직원 추가하기</h4>
+                <span>&times;</span>
+            </div>
+            <hr>
+            <div class="modal_add_body modal1_body">
+                <form action="" class="add_form modal1_form">
+                    이름: <input type="text" name="name" required><br>
+                    주소: <input type="text" name="address" required><br>
+                    성별: <select name="sex" id="sex">
+                            <option value="male">남성</option>
+                            <option value="female">여성</option>
+                        </select><br>
+                    직업: <input type="text" name="job" required><br>
+                    나이: <input type="number" name="age" required><br>
+                    <input type="submit" value="추가">
+                </form>
+            </div>
+
+            <div class="modal_add_footer modal1_footer">
+                <button id="close">닫기</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal_detail">
+        <div class="modal_detail_container">
+            <div class="modal_detail_header">
+                <h4>직원 상세</h4>
+                <span>&times;</span>
+            </div>
+            <hr>
+            <div class="modal_detail_body">
+                <table class="table2">
+                </table>
+            </div>
+
+            <div class="modal_detail_footer">
+                <button class="close">닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal_update modal1">
+        <div class="modal_update_container modal1_container">
+            <div class="modal_update_header modal1_header">
+                <h4>직원 수정하기</h4>
+                <span>&times;</span>
+            </div>
+            <hr>
+            <div class="modal_update_body modal1_body">
+                <form action="" class="update_form modal1_form">
+                    ID: <span id="id" name="id"></span><br>
+                    이름: <input type="text" name="name" id="name" required><br>
+                    주소: <input type="text" name="address" id="address" required><br>
+                    성별: <select name="sex" class="sex">
+                            <option value="male">남성</option>
+                            <option value="female">여성</option>
+                        </select><br>
+                    직업: <input type="text" name="job" id="job" required><br>
+                    나이: <input type="number" name="age" id="age" required><br>
+                    <input type="submit" value="수정">
+                </form>
+            </div>
+
+            <div class="modal_update_footer modal1_footer">
+                <button id="close">닫기</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
