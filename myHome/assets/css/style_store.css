@@ -1,0 +1,219 @@
+
+/* 스토어 */
+/* masthead */
+.masthead {
+    position: relative;
+    width: 100%;
+    padding: 200px 0;
+    background-color: rgb(89, 85, 80);
+}
+.masthead>img {
+    width: 100%;
+    /* background-image: linear-gradient(), url(); */
+    /* background-image: url(img/living-room-690174_1920.jpg), linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); */
+    /* mask-image: linear-gradient(black, transparent); */
+    /* filter: blur(3px); */
+}
+.masthead>.search {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.masthead .wrapper {
+    position: relative;
+}
+.masthead .search_input {
+    border: 2px solid rgb(175, 170, 163);
+    border-radius: 5px;
+    padding: 10px;
+    padding-right: 30px;
+    width: 35vw;
+    font-size: 18px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.04);
+    color: rgb(209, 203, 194);
+}
+.masthead .search_input:focus {
+    border: 2px solid rgb(255, 253, 251);
+}
+.masthead i {
+    position: absolute;
+    top: 47%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: rgb(175, 170, 163);
+}
+.masthead>.search>.empty {
+    position: absolute;
+    left: 50%;
+    bottom: -40px;
+    transform: translateX(-50%);
+    display: none;
+    margin: 0;
+    white-space: nowrap;
+    color: rgb(175, 170, 163);
+}
+.masthead i:hover {
+    /* cursor: pointer; */
+    color: rgb(138, 128, 117);
+}
+
+
+
+/* Store content */
+.store_content {
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding: 50px 0;
+}
+
+/* product list */
+.product_list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+
+    padding: 20px;
+}
+.product {
+    width: 250px;
+    margin: 20px 10px;
+}
+.product>img {
+    width: 100%;
+}
+.product>.product_name {
+
+}
+.product>.brand {
+    color: gray;
+    font-size: 13px;
+}
+.product>.price {
+    color: rgb(99, 134, 99);
+    font-size: 13px;
+}
+
+
+
+
+/* cart */
+.cart {
+    display: flex;
+    flex-direction: column;
+
+
+    position: sticky;
+    top: 15vh;
+    right: 0;
+    width: 30%;
+    height: 80vh;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    background-color: white;
+    border: 2px solid rgb(190, 186, 179);
+    border-radius: 5px;
+}
+.cart>.empty {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+
+}
+.cart_list>table {
+    width: 100%;
+}
+.cart_product {
+    /* display: flex;
+    align-items: center; */
+    width: 100%;
+    padding: 10px;
+}
+.cart_product img {
+    width: 100px;
+}
+.cart_product .cart_text {
+    margin-left: 20px;
+}
+.cart_product .product_name {
+
+}
+.cart_product .brand {
+    font-size: 12px;
+    color: gray;
+}
+.cart_product .price {
+    font-size: 12px;
+    color: rgb(99, 134, 99);
+}
+.cart_product .num {
+    margin-left: auto;
+    width: 40px;
+}
+.cart_product .remove {
+    margin-left: auto;
+    border: none;
+    background: none;
+    color: gray;
+    font-size: 20px;
+}
+.cart_product .remove:hover {
+    cursor: pointer;
+    color: rgb(63, 63, 63);
+}
+
+.cart .total {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: right;
+    background-color: white;
+}
+
+
+
+
+
+/* cart modal */
+.cart_modal {
+    display: none;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+}
+.cart_modal_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+    margin: 300px auto;
+    padding: 50px;
+    width: 500px;
+
+    border-radius: 10px;
+    background-color: white;
+}
+.cart_modal_content>.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+.cart_modal_content>.close:hover {
+    cursor: pointer;
+}
+.cart_modal_content>form {
+
+}

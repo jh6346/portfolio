@@ -1,0 +1,326 @@
+body {
+    /* background-color: rgb(254, 254, 254); */
+    /* background-color: rgb(231, 231, 231); */
+    background-color: rgb(238, 235, 233);
+}
+.specialist_content {
+    width: 100%;
+    padding: 150px 0;
+}
+.header {
+    background-color: rgba(121, 116, 111, 0.97);
+}
+
+/* .header {
+    text-shadow: none;
+}
+.header>.logo {
+    color: rgb(65, 61, 59);
+}
+.header>.nav>ul>a>li {
+    color: rgb(65, 61, 59);
+}
+.header>.login>button {
+    color: rgb(65, 61, 59);
+    border: 1px solid rgb(65, 61, 59);
+} */
+
+
+/* 전문가 리스트 */
+.specialist_list {
+    width: 1000px;
+    margin: 0 auto;
+    /* margin: 300px; */
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+.tab {
+    margin: 30px 0;
+}
+.tab_click {
+    background-color: rgb(236, 236, 236);
+    box-shadow: 0px 0px 5px rgb(236, 236, 236);
+}
+.tab>.info {
+    padding: 10px;
+    border-radius: 10px;
+}
+.tab>.info:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+.tab>.info>.img {
+    border-radius: 8px;
+    overflow: hidden;
+    width: 120px;
+    height: 140px;
+}
+.tab>.info>.img>img {
+    width: 100%;
+}
+.tab>.info>.info_right {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    /* height: 100%; */
+}
+.tab>.info>.info_right>* {
+    margin: 5px 10px;
+}
+.tab>.info .wrapper {
+    display: flex;
+    align-items: center;
+}
+.tab>.info .wrapper>.name {
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(94, 94, 94);
+}
+.tab>.info .wrapper>.id {
+    margin-left: 3px;
+    font-size: 12px;
+    color: rgb(153, 153, 153);
+}
+.tab>.info>.info_right .star {
+    margin: 0 1px;
+}
+
+
+
+.tab .review_list {
+    margin: 10px 30px;
+    border-left: 3px solid rgb(224, 224, 224);
+    padding: 10px 20px;
+}
+.tab .review_list .review td { /* 리뷰 여백 */
+    border-top: 10px solid;
+    border-bottom: 10px solid;
+    /* border-color: transparent; */
+    border-color: white;
+}
+
+
+.review_list .review .top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5px 10px;
+}
+.review_list .review .top>.dot {
+    color: rgb(187, 187, 187);
+    margin: 0 10px;
+}
+
+.review_list .review .user_img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+.review_list .review .top>.user_name {
+    /* width: 200px; */
+}
+.review_list .review .top>.user_id {
+    color: gray;
+    font-size: 11px;
+}
+.review_list .review .top .star {
+    margin: 0 1px;
+}
+.review_list .review .top>.cost {
+    /* width: 200px */
+}
+
+.review_list .review .review_right {
+    width: 100%;
+    background-color: rgb(253, 253, 253);
+}
+.review_list .review .review_right>.line {
+    width: 100%;
+    height: 1px;
+    background-color: rgb(230, 230, 230);
+    margin: 5px 0;
+}
+.review_list .review .review_right>.content {
+    padding: 5px 10px;
+    white-space: pre-line;
+}
+/*
+작성자 · 평점 · 비용
+내용
+*/
+
+.review_list .btn_wrapper {
+    margin-top: 10px;
+    text-align: right;
+}
+.btn {
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: rgb(96, 184, 96);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+.btn:hover {
+    cursor: pointer;
+    background-color: rgb(162, 162, 162);
+}
+/* .review_list .btn_wrapper>.review_btn {
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: rgb(96, 184, 96);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+.review_list .btn_wrapper>.review_btn:hover {
+    cursor: pointer;
+    background-color: rgb(162, 162, 162);
+} */
+
+
+
+/* 시공 후기 모달 */
+.review_modal {
+    display: none;
+    /* 
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    
+    backdrop-filter: blur(3px); */
+}
+
+.review_modal_content {
+    /* position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+
+    padding: 20px;
+    width: 400px;
+    
+    border-radius: 15px;
+    /* background-color: white; */
+}
+
+.review_modal_header>.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.review_modal_header .close {
+    background: none;
+    border: none;
+}
+.review_modal_header>.spl {
+    display: flex;
+    align-items: center;
+}
+.review_modal_header .img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.review_modal_header .img>img {
+    width: 100%;
+}
+.review_modal_header>.spl>.wrapper {
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.review_modal_body {
+
+}
+.review_form {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+.review_form>* {
+    margin: 5px 0;
+    
+}
+.review_form>#content {
+    resize: none;
+    height: 100px;
+}
+.review_form>#content {
+    padding: 10px;
+    border: 1px solid rgb(233, 233, 233);
+    border-radius: 5px;
+}
+
+.review_form>.cost_input {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(233, 233, 233);
+    border-radius: 5px;
+
+    width: 200px;
+    height: 35px;
+    overflow: hidden;
+
+    align-self: flex-end;
+}
+.cost_input>.text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 100%;
+
+    text-align: center;
+    background-color: rgb(184, 184, 184);
+    color: rgb(255, 255, 255);
+}
+.cost_input>#cost {
+    padding: 10px;
+    border: none;
+    border-left: 1px solid rgb(233, 233, 233);
+    background-color: transparent;
+    outline: none;
+    width: 100%;
+    /* border: 1px solid rgb(163, 163, 163);
+    border-radius: 5px; */
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button { /* input number 화살표 제거 */
+  -webkit-appearance: none;
+  margin: 0;
+}
+.review_form>#review_submit {
+    align-self: flex-end;
+    margin-top: 10px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    /* padding: 5px 10px;
+
+    border: none;
+    border-radius: 5px;
+
+    background-color: rgb(96, 184, 96);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    color: white; */
+}
+
+.review_modal_header .close:hover {
+    cursor: pointer;
+}
+
+.review_modal_header .stars:hover {
+    cursor: pointer;
+}
