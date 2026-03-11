@@ -1,0 +1,27 @@
+{
+    "IT매뉴얼" : [
+        {"title" : "데이터 시각화와 탐색 with Power BI 3rd", "author" : "마경근, 서주란", "price" : "30,000", "imgurl" : "img/youngjin/recommend/9788931480634.jpg"},
+        {"title" : "영상 제작을 위한 환상의 콤비 프리미어 프로 + 포토샵 & AI", "author" : "김경수, 김다인", "price" : "26,000", "imgurl" : "img/youngjin/recommend/9788931480559.jpg"},
+        {"title" : "챗GPT와 함께하는 주식 데이터 분석", "author" : "이진규", "price" : "22,000", "imgurl" : "img/youngjin/recommend/9788931480221.png"},
+        {"title" : "처음이야? 파이썬 기초", "author" : "윤영빈, 오환, 이용희", "price" : "20,000", "imgurl" : "img/youngjin/recommend/9788931478006.png"},
+        {"title" : "포토샵 판타지 아트", "author" : "JASON KIM", "price" : "32,000", "imgurl" : "img/youngjin/recommend/9788931478952.jpg"},
+        {"title" : "쓱 하고 싹 배우는 블로그&스마트스토어 2nd Edition", "author" : "김재연", "price" : "14,000", "imgurl" : "img/youngjin/recommend/9788931479690.jpg"},
+        {"title" : "프론트엔드 개발자를 위한 인터랙티브 웹 애니메이션", "author" : "김영민", "price" : "38,000", "imgurl" : "img/youngjin/recommend/9788931479393.png"}
+    ],
+    "단행본" : [
+        {"title" : "최고의 건물과 거리를 그리는 기술", "author" : "건축지식", "price" : "21,000", "imgurl" : "img/youngjin/recommend/9788931476996.jpg"},
+        {"title" : "그래도 나니까", "author" : "김소현", "price" : "18,000", "imgurl" : "img/youngjin/recommend/9788931475678.jpg"},
+        {"title" : "데즈카 오사무의 삶을 바꾸는 메시지", "author" : "마츠타니 타카유키", "price" : "16,800", "imgurl" : "img/youngjin/recommend/9788931477610.jpg"},
+        {"title" : "돈의 얼굴", "author" : "EBS, 조현영", "price" : "20,000", "imgurl" : "img/youngjin/recommend/9788931479867.jpg"},
+        {"title" : "사실적인 그림을 그리는 방법", "author" : "Yas", "price" : "19,000", "imgurl" : "img/youngjin/recommend/9788931475555.jpg"},
+        {"title" : "만화로 배우는 명화의 이유", "author" : "야마가미 야스오", "price" : "16,800", "imgurl" : "img/youngjin/recommend/9788931479126.jpg"}
+    ],
+    "수험서자격증" : [
+        {"title" : "2026 이기적 워드프로세서 필기+실기 올인원", "author" : "김옥남, 송재현", "price" : "30,000", "imgurl" : "img/youngjin/recommend/9788931479621.png"},
+        {"title" : "2026 이기적 컴퓨터활용능력 1급 필기 기출 1200제", "author" : "영진정보연구소", "price" : "17,000", "imgurl" : "img/youngjin/recommend/9788931479331.png"},
+        {"title" : "2026 이기적 정보처리기사 필기+실기 올인원", "author" : "고소현, 한진만", "price" : "49,000", "imgurl" : "img/youngjin/recommend/9788931479805.png"},
+        {"title" : "2026 이기적 ITQ OA Master ver.2021+2020 올인원", "author" : "영진정보연구소", "price" : "30,000", "imgurl" : "img/youngjin/recommend/9788931480917.png"},
+        {"title" : "2026 이기적 GTQ 포토샵 1급 기본서(ver.CC 2020)", "author" : "일마", "price" : "24,000", "imgurl" : "img/youngjin/recommend/9788931476620.png"},
+        {"title" : "2026 이기적 웹디자인개발기능사 필기 절대족보", "author" : "이민희", "price" : "19,000", "imgurl" : "img/youngjin/recommend/9788931476569.png"}
+    ]
+}

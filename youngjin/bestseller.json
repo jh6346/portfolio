@@ -1,0 +1,21 @@
+{
+    "bestseller" : [
+        {
+            "수험서자격증" : [
+                {"title" : "2026 이기적 컴퓨터활용능력 1급 필기 기출 1200제", "author" : "영진정보연구소", "imgurl" : "img/youngjin/bestseller/9788931479331.png"},
+                {"title" : "2026 이기적 한식조리기능사 필기 이론+기출문제", "author" : "최경선", "imgurl" : "img/youngjin/bestseller/9788931481495.png"},
+                {"title" : "2026 이기적 컴퓨터활용능력 2급 필기 기출 800제", "author" : "영진정보연구소", "imgurl" : "img/youngjin/bestseller/9788931479348.png"}
+            ],
+            "IT매뉴얼" : [
+                {"title" : "마인크래프트 RPG 만들기", "author" : "우마공 운영진", "imgurl" : "img/youngjin/bestseller/9788931480542.png"},
+                {"title" : "데이터 시각화와 탐색 with Power BI 3rd", "author" : "마경근, 서주란", "imgurl" : "img/youngjin/bestseller/9788931480634.jpg"},
+                {"title" : "영상 제작을 위한 환상의 콤비 프리미어 프로 + 포토샵 & AI", "author" : "김경수, 김다인", "imgurl" : "img/youngjin/bestseller/9788931480559.jpg"}
+            ],
+            "단행본" : [
+                {"title" : "최고의 건물과 거리를 그리는 기술", "author" : "건축지식", "imgurl" : "img/youngjin/bestseller/9788931476996.jpg"},
+                {"title" : "작전명 순정 6", "author" : "꼬까리/들덤", "imgurl" : "img/youngjin/bestseller/9788931478440.jpg"},
+                {"title" : "그래도 나니까", "author" : "김소현", "imgurl" : "img/youngjin/bestseller/9788931475678.jpg"}
+            ]
+        }
+    ]
+}

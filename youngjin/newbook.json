@@ -1,0 +1,29 @@
+{
+    "IT매뉴얼" : [
+        {"title" : "마인크래프트 건축가이드: 마법 프로젝트", "author" : "mojang AB", "price" : "14,000", "imgurl" : "img/youngjin/newbook/9788931479003.jpg"},
+        {"title" : "리액트, Next.js로 완성하는 프론트엔드", "author" : "강경석", "price" : "36,000", "imgurl" : "img/youngjin/newbook/9788931481105.png"},
+        {"title" : "마인크래프트 RPG 만들기", "author" : "우마공 운영진", "price" : "19,800", "imgurl" : "img/youngjin/newbook/9788931480542.png"},
+        {"title" : "처음 배우는 명암·구도·배색", "author" : "시마자키 조제", "price" : "20,000", "imgurl" : "img/youngjin/newbook/9788931480948.jpg"},
+        {"title" : "데이터 시각화와 탐색 with Power BI 3rd", "author" : "마경근, 서주란", "price" : "30,000", "imgurl" : "img/youngjin/newbook/9788931480634.jpg"},
+        {"title" : "영상 제작을 위한 환상의 콤비 프리미어 프로 + 포토샵 & AI", "author" : "김경수, 김다인", "price" : "26,000", "imgurl" : "img/youngjin/newbook/9788931480559.jpg"},
+        {"title" : "포토샵 AI with 파이어플라이", "author" : "JASON KIM", "price" : "25,000", "imgurl" : "img/youngjin/newbook/9788931481341.jpg"},
+        {"title" : "메이크코드로 만드는 마인크래프트 테마파크 개정판", "author" : "에이럭스 교육연구소, 오수진", "price" : "18,000", "imgurl" : "img/youngjin/newbook/9788931481020.jpg"}
+    ],
+    "단행본" : [
+        {"title" : "최고의 건물과 거리를 그리는 기술", "author" : "건축지식", "price" : "21,000", "imgurl" : "img/youngjin/newbook/9788931476996.jpg"},
+        {"title" : "소설 한 잔", "author" : "정인성", "price" : "18,000", "imgurl" : "img/youngjin/newbook/9788931480894.png"},
+        {"title" : "작전명 순정 4", "author" : "꼬까리/들덤", "price" : "16,000", "imgurl" : "img/youngjin/newbook/9788931478426.jpg"},
+        {"title" : "작전명 순정 5", "author" : "꼬까리/들덤", "price" : "16,000", "imgurl" : "img/youngjin/newbook/9788931478433.jpg"},
+        {"title" : "작전명 순정 6", "author" : "꼬까리/들덤", "price" : "16,000", "imgurl" : "img/youngjin/newbook/9788931478440.jpg"},
+        {"title" : "그래도 나니까", "author" : "김소현", "price" : "18,000", "imgurl" : "img/youngjin/newbook/9788931475678.jpg"}
+    ],
+    "수험서자격증" : [
+        {"title" : "2026 이기적 컴퓨터활용능력 1급 필기 기출 1200제", "author" : "영진정보연구소", "price" : "17,000", "imgurl" : "img/youngjin/newbook/9788931479331.png"},
+        {"title" : "2026 이기적 워드프로세서 필기+실기 올인원", "author" : "김옥남, 송재현", "price" : "30,000", "imgurl" : "img/youngjin/newbook/9788931479621.png"},
+        {"title" : "2026 이기적 GTQ 포토샵 1급 기본서(ver.CC 2020)", "author" : "일마", "price" : "24,000", "imgurl" : "img/youngjin/newbook/9788931476620.png"},
+        {"title" : "2026 이기적 한식조리기능사 필기 이론+기출문제", "author" : "최경선", "price" : "17,000", "imgurl" : "img/youngjin/newbook/9788931481495.png"},
+        {"title" : "2026 이기적 컴퓨터활용능력 2급 필기 기출 800제", "author" : "영진정보연구소", "price" : "13,000", "imgurl" : "img/youngjin/newbook/9788931479348.png"},
+        {"title" : "2026 이기적 SQLD SQL 개발자 이론+기출문제", "author" : "강태우", "price" : "24,000", "imgurl" : "img/youngjin/newbook/9788931477849.png"},
+        {"title" : "2026 이기적 SQLD SQL 개발자 이론+기출문제", "author" : "강태우", "price" : "24,000", "imgurl" : "img/youngjin/newbook/9788931477849.png"}
+    ]
+}
